@@ -12,6 +12,7 @@ public class CalculateEntryInMemory implements CalculateEntryContract {
   public CalculateEntry add(double inputX, double inputY) {
     double result = inputX + inputY;
     CalculateEntry additionEntry = new CalculateEntry(inputX, inputY, result, OperationType.ADDITION);
+    additionEntry.setId(currentCalculateId);
     calculateEntries.put(currentCalculateId, additionEntry);
     currentCalculateId++;
     return additionEntry;
@@ -19,8 +20,9 @@ public class CalculateEntryInMemory implements CalculateEntryContract {
 
   @Override
   public CalculateEntry subtract(double inputX, double inputY) {
-    double result = inputX + inputY;
+    double result = inputX - inputY;
     CalculateEntry subtractionEntry = new CalculateEntry(inputX, inputY, result, OperationType.SUBTRACTION);
+    subtractionEntry.setId(currentCalculateId);
     calculateEntries.put(currentCalculateId, subtractionEntry);
     currentCalculateId++;
     return subtractionEntry;
@@ -28,8 +30,9 @@ public class CalculateEntryInMemory implements CalculateEntryContract {
 
   @Override
   public CalculateEntry multiply(double inputX, double inputY) {
-    double result = inputX + inputY;
+    double result = inputX * inputY;
     CalculateEntry multiplyEntry = new CalculateEntry(inputX, inputY, result, OperationType.MULTIPLICATION);
+    multiplyEntry.setId(currentCalculateId);
     calculateEntries.put(currentCalculateId, multiplyEntry);
     currentCalculateId++;
     return multiplyEntry;
@@ -37,8 +40,9 @@ public class CalculateEntryInMemory implements CalculateEntryContract {
 
   @Override
   public CalculateEntry divide(double inputX, double inputY) {
-    double result = inputX + inputY;
+    double result = inputX / inputY;
     CalculateEntry divideEntry = new CalculateEntry(inputX, inputY, result, OperationType.DIVISION);
+    divideEntry.setId(currentCalculateId);
     calculateEntries.put(currentCalculateId, divideEntry);
     currentCalculateId++;
     return divideEntry;
