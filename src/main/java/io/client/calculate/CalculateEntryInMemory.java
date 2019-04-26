@@ -1,10 +1,15 @@
 package io.client.calculate;
 
+import io.client.calculate.Operation.OperationType;
+
 public class CalculateEntryInMemory implements CalculateEntryContract {
 
   @Override
   public double add(double inputX, double inputY) {
-    return 0;
+    double result = inputX + inputY;
+    CalculateEntry addition = new CalculateEntry(inputX, inputY, OperationType.ADDITION);
+    addition.setResult(result);
+    return result;
   }
 
   @Override
