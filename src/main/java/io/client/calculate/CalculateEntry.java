@@ -1,8 +1,11 @@
 package io.client.calculate;
 
 import io.client.calculate.Operation.OperationType;
+import java.util.Objects;
 
 public class CalculateEntry {
+
+  private int id;
   private double inputX;
   private double inputY;
   private double result;
@@ -12,10 +15,20 @@ public class CalculateEntry {
 
   }
 
-  public CalculateEntry(double inputX, double inputY,
+  public CalculateEntry(double inputX, double inputY, double result,
       OperationType operationType) {
     this.inputX = inputX;
     this.inputY = inputY;
+    this.result = result;
+    this.operationType = operationType;
+  }
+
+  public CalculateEntry(int id, double inputX, double inputY, double result,
+      OperationType operationType) {
+    this.id = id;
+    this.inputX = inputX;
+    this.inputY = inputY;
+    this.result = result;
     this.operationType = operationType;
   }
 
@@ -43,11 +56,51 @@ public class CalculateEntry {
     this.result = result;
   }
 
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
   public OperationType getOperationType() {
     return operationType;
   }
 
   public void setOperationType(OperationType operationType) {
     this.operationType = operationType;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CalculateEntry that = (CalculateEntry) o;
+    return id == that.id &&
+        Double.compare(that.inputX, inputX) == 0 &&
+        Double.compare(that.inputY, inputY) == 0 &&
+        Double.compare(that.result, result) == 0 &&
+        operationType == that.operationType;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, inputX, inputY, result, operationType);
+  }
+
+  @Override
+  public String toString() {
+    return "CalculateEntry{" +
+        "id=" + id +
+        ", inputX=" + inputX +
+        ", inputY=" + inputY +
+        ", result=" + result +
+        ", operationType=" + operationType +
+        '}';
   }
 }

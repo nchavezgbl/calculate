@@ -16,8 +16,8 @@ public class CalculateEntryController {
   }
   @PostMapping("/add/{inputX}/{inputY}")
   public ResponseEntity add(@PathVariable double inputX, @PathVariable double inputY){
-    double result = calculateEntryContract.add(inputX, inputY);
-    return new ResponseEntity<Double>(result, HttpStatus.OK);
+    CalculateEntry result = calculateEntryContract.add(inputX, inputY);
+    return new ResponseEntity<CalculateEntry>(result, HttpStatus.OK);
   }
 
 }
