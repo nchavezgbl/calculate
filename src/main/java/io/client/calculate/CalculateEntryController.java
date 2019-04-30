@@ -15,13 +15,23 @@ public class CalculateEntryController {
   }
 
   public ResponseEntity add(double inputX, double inputY){
-    CalculateEntry result = calculateEntryContract.add(inputX, 0);
-    return new ResponseEntity<CalculateEntry>(result, HttpStatus.OK);
+    CalculateEntry result = calculateEntryContract.add(inputX, inputY);
+    return new ResponseEntity<CalculateEntry>(result, HttpStatus.CREATED);
   }
 
   public ResponseEntity subtract(double inputX, double inputY){
     CalculateEntry result = calculateEntryContract.subtract(inputX, inputY);
-    return new ResponseEntity<CalculateEntry>(result, HttpStatus.OK);
+    return new ResponseEntity<CalculateEntry>(result, HttpStatus.CREATED);
+  }
+
+  public ResponseEntity multiply(double inputX, double inputY){
+    CalculateEntry result = calculateEntryContract.multiply(inputX, inputY);
+    return new ResponseEntity<CalculateEntry>(result, HttpStatus.CREATED);
+  }
+
+  public ResponseEntity divide(double inputX, double inputY){
+    CalculateEntry result = calculateEntryContract.divide(inputX, inputY);
+    return new ResponseEntity<CalculateEntry>(result, HttpStatus.CREATED);
   }
 
 }
