@@ -32,7 +32,13 @@ public class CalculateEntry {
     this.operationType = operationType;
   }
 
-  public double getInputX() {
+    public CalculateEntry(double userInputX, double userInputY, double result) {
+      this.inputX = inputX;
+      this.inputY = inputY;
+      this.result = result;
+    }
+
+    public double getInputX() {
     return inputX;
   }
 
