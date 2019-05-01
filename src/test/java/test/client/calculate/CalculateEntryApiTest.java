@@ -40,7 +40,7 @@ public class CalculateEntryApiTest {
         calculateEntry.setOperationType(Operation.OperationType.ADDITION);
         calculateEntry.setResult(result);
         String url = "/calculate/add/" +userInputX + "/" +userInputY;
-        ResponseEntity<String> addResponse = restTemplate.postForEntity(url,calculateEntry, String.class);
+        ResponseEntity<String> addResponse = restTemplate.getForEntity(url,String.class);
         assertThat(addResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         DocumentContext createJson = parse(addResponse.getBody());
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);
@@ -59,7 +59,7 @@ public class CalculateEntryApiTest {
         calculateEntry.setOperationType(Operation.OperationType.SUBTRACTION);
         calculateEntry.setResult(result);
         String url = "/calculate/subtract/" +userInputX + "/" +userInputY;
-        ResponseEntity<String> subtractResponse = restTemplate.postForEntity(url,calculateEntry, String.class);
+        ResponseEntity<String> subtractResponse = restTemplate.getForEntity(url, String.class);
         assertThat(subtractResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         DocumentContext createJson = parse(subtractResponse.getBody());
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);
@@ -78,7 +78,7 @@ public class CalculateEntryApiTest {
         calculateEntry.setOperationType(Operation.OperationType.MULTIPLICATION);
         calculateEntry.setResult(result);
         String url = "/calculate/multiply/" +userInputX + "/" +userInputY;
-        ResponseEntity<String> multiplyResponse = restTemplate.postForEntity(url,calculateEntry, String.class);
+        ResponseEntity<String> multiplyResponse = restTemplate.getForEntity(url, String.class);
         assertThat(multiplyResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         DocumentContext createJson = parse(multiplyResponse.getBody());
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);
@@ -97,7 +97,7 @@ public class CalculateEntryApiTest {
         calculateEntry.setOperationType(Operation.OperationType.DIVISION);
         calculateEntry.setResult(result);
         String url = "/calculate/divide/" +userInputX + "/" +userInputY;
-        ResponseEntity<String> multiplyResponse = restTemplate.postForEntity(url,calculateEntry, String.class);
+        ResponseEntity<String> multiplyResponse = restTemplate.getForEntity(url, String.class);
         assertThat(multiplyResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         DocumentContext createJson = parse(multiplyResponse.getBody());
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);

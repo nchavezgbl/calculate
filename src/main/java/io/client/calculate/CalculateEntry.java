@@ -8,8 +8,8 @@ public class CalculateEntry {
   private long id;
   private double inputX;
   private double inputY;
-  private double result;
   private OperationType operationType;
+  private double result;
 
   public CalculateEntry() {
 
